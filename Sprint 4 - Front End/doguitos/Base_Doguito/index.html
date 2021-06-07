@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="styles.css" /> 
+        <title>Doguitos</title> 
+    </head>
+    <body id="background">
+        <h1 class="titulo">SITE DE DOGUINHOS</h1>
+        <div id="dog1">
+            <img class="imagem1" src="Ibageins/2.jpeg" alt="Sammy"/> 
+            <h2>Sammy</h2>
+        </div>
+        <div id="dog2">
+            <img class="imagem2" src="Ibageins/3.jpeg" alt="Dragão"/> 
+            <h2>Dragão</h2>
+        </div>
+        <div id="dog3">
+            <img class="imagem3" src="Ibageins/4.jpeg" alt="Milton"/> 
+            <h2>Milton</h2>
+        </div>
+        <div id="dog4">
+            <img class="imagem4" src="Ibageins/5.jpeg" alt="Penny"/> 
+            <h2>Penny</h2>
+        </div>
+        <div id="dog5">
+            <img class="imagem5" src="Ibageins/6.jpeg" alt="Nenem"/> 
+            <h2>Nenem</h2>
+        </div>
+        <div id="botauns">
+            <input id="btn" type="button" value="Nome dos Spitz" onclick="soSpitz()"/> <!--Filter  -->
+            <input id="btn" type="button" value="Idade Real" onclick="idadeReal()"/> <!-- Map -->
+            <input id="btn" type="button" value="Soma todas as Idades" onclick="idadeSoma()"/> <!-- Reduce -->
+            <input id="btn" type="button" value="La-laranjas...?" onclick="mudaTudo()"/>
+        </div>
+
+        <script> 
+        dogs = [
+            {
+                nome: 'Sammy',
+                idade: 6,
+                raca: 'Samoieda'
+            },
+            {
+                nome: 'Dragão',
+                idade: 5,
+                raca: 'Spitz Alemão'
+            },
+            {
+                nome: 'Milton',
+                idade: 8,
+                raca: 'Spitz Alemão'
+            },
+            {
+                nome: 'Penny',
+                idade: 6,
+                raca: 'Spitz Alemão'
+            },
+            {
+                nome: 'Nenem',
+                idade: 4,
+                raca: 'Spitz Alemão'
+            },
+            ];
+
+            function soSpitz() {
+                var nomeSpitz = dogs.filter(filtro);
+                return alert(nomeSpitz)
+            }
+            function filtro(dog) {
+                if (raca == 'Spitz Alemão') {
+                    return dogs.nome
+                }
+            }
+
+            function idadeReal() {
+            var IdadeReal = dogs.map( function (dog) {
+                    return (`${dog.nome}, ${dog.idade * 7};`)
+                } )
+                alert(IdadeReal)          
+            }
+
+            function idadeSoma() {
+            var somatoria = dogs.reduce(function(total, item) { return total + item.idade; }, 0);
+                return alert(somatoria);
+            }
+
+            function mudaTudo() {
+                document.getElementsByClassName("titulo")[0].innerHTML = "Site de Laranjas";
+                document.querySelector("body").style.backgroundImage = "none";
+                document.querySelector("body").style.backgroundColor = "#E0A80B";
+                
+                document.querySelector("#dog1").style.backgroundColor = "#E0A80B";
+                document.querySelector("#dog2").style.backgroundColor = "#E0A80B";
+                document.querySelector("#dog3").style.backgroundColor = "#E0A80B";
+                document.querySelector("#dog4").style.backgroundColor = "#E0A80B";
+                document.querySelector("#dog5").style.backgroundColor = "#E0A80B";
+
+                var imagem = document.querySelector("img.imagem1");
+                imagem.setAttribute("src", "laranja.jpg");
+
+                var imagem = document.querySelector("img.imagem2");
+                imagem.setAttribute("src", "laranja2.jpg");
+
+                var imagem = document.querySelector("img.imagem3");
+                imagem.setAttribute("src", "laranja3.jpg");
+
+                var imagem = document.querySelector("img.imagem4");
+                imagem.setAttribute("src", "laranja4.jpg");
+
+                var imagem = document.querySelector("img.imagem5");
+                imagem.setAttribute("src", "laranjo.jpg");
+            }
+            //solta seus script brabos aqui
+        </script>
+    </body>
+</html>

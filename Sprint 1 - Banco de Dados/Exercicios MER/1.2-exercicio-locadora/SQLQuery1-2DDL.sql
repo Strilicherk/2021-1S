@@ -1,0 +1,49 @@
+CREATE DATABASE Locadora;
+
+USE Locadora;
+
+
+CREATE TABLE Empresa
+(
+	IdEmpresa INT PRIMARY KEY IDENTITY
+	,NomeEmpresa VARCHAR (100) NOT NULL
+);
+
+CREATE TABLE Marca
+(
+	IdMarca INT PRIMARY KEY IDENTITY 
+	,NomeMarca VARCHAR (50) NOT NULL
+);
+
+CREATE TABLE Modelo
+(
+	IdModelo INT PRIMARY KEY IDENTITY
+	,IdMarca INT FOREIGN KEY REFERENCES Marca(IdMarca)
+	,Descricao VARCHAR (50) NOT NULL
+);
+
+CREATE TABLE Veiculo
+(
+	 IdVeiculo INT PRIMARY KEY IDENTITY
+	,IdEmpresa INT FOREIGN KEY REFERENCES Empresa(IdEmpresa)
+	,IdModelo INT FOREIGN KEY REFERENCES Modelo(IdModelo)
+	,Placa VARCHAR (7) NOT NULL
+);
+
+CREATE TABLE Cliente
+(
+	IdCliente INT PRIMARY KEY IDENTITY
+	,Nome VARCHAR (100) NOT NULL
+	,CPF VARCHAR (11) NOT NULL
+	
+);
+
+CREATE TABLE Aluguel
+(
+	IdAluguel INT PRIMARY KEY IDENTITY
+	,IdCliente INT FOREIGN KEY REFERENCES Cliente(IdCliente)
+	,IdVeiculo INT FOREIGN KEY REFERENCES Veiculo(IdVeiculo)
+	,DataInicio DATE 
+	,DataFim DATE
+);
+
